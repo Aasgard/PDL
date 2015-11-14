@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import classes.Event;
+import classes.Opening;
 import classes.Player;
 import mysql.MySQL;
 
@@ -46,6 +47,25 @@ public class ExtractDB {
 		}
 		
 		return allEvents;
+	}
+	
+	/**
+	 * Retourne un ArrayList d'Opening contenant tous les ouvertures de parties de la BDD
+	 * @return ArrayList<Opening>
+	 */
+	public static ArrayList<Opening> getAllOpenings(){
+		ArrayList<Opening> allOpenings = new ArrayList<Opening>();
+		String query = "SELECT o.id, o.opening, o.variation, o.moves, o.nbMoves FROM Opening o";
+		try {
+			ResultSet rs = MySQL.getInstance().query(query);
+			while(rs.next()){
+				allOpenings.add(new Opening(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return allOpenings;
 	}
 	
 }
