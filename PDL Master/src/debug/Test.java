@@ -18,7 +18,7 @@ public class Test {
 		ArrayList<Event> allEvents = ExtractDB.getAllEvents();
 		ArrayList<Opening> allOpenings = ExtractDB.getAllOpenings();
 		
-		System.out.println("Nombre de joueurs : " + allPlayers.size());
+		System.out.println("Nombre de joueurs dans la BDD : " + allPlayers.size());
 		System.out.println("Nombre d'evènements : " + allEvents.size());
 		System.out.println("Nombre d'ouvertures : " + allOpenings.size());
 		
