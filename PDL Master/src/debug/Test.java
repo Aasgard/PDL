@@ -20,7 +20,7 @@ public class Test {
 		
 		System.out.println("Nombre de joueurs dans la BDD : " + allPlayers.size());
 		System.out.println("Nombre d'evènements : " + allEvents.size());
-		System.out.println("Nombre d'ouvertures : " + allOpenings.size());
+		System.out.println("Nombre d'ouvertures dans la BDD: " + allOpenings.size());
 		
 		System.out.println("Temps d'exécution : " + timer.elapsedTime() + " sec.");
 		
