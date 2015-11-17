@@ -19,11 +19,10 @@ public class Test {
 		ArrayList<Opening> allOpenings = ExtractDB.getAllOpenings();
 		
 		System.out.println("Nombre de joueurs dans la BDD : " + allPlayers.size());
-		System.out.println("Nombre d'evènements : " + allEvents.size());
-		System.out.println("Nombre d'ouvertures : " + allOpenings.size());
+		System.out.println("Nombre d'evènements dans la BDD : " + allEvents.size());
+		System.out.println("Nombre d'ouvertures dans la BDD : " + allOpenings.size());
 		
-		System.out.println("Temps d'exécution : " + timer.elapsedTime() + " sec.");
-		
+		System.out.println("Temps d'exécution des requêtes : " + timer.elapsedTime() + " sec.");
 		
 	}
 }
