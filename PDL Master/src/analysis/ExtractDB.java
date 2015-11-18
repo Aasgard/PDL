@@ -5,6 +5,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import classes.Event;
+import classes.FEN;
+import classes.Move;
 import classes.Opening;
 import classes.Player;
 import mysql.MySQL;
@@ -66,6 +68,21 @@ public class ExtractDB {
 		}
 		
 		return allOpenings;
+	}
+	
+	public static ArrayList<Move> getMovesByGame(int id){
+		ArrayList<Move> allMovesByGame = new ArrayList<Move>();
+		String query = "SELECT m.id,m.idGame,m.halfMove,m.move,f.id,f.log FROM Move m, FEN f WHERE m.idFEN = f.id AND idGame = " + id;
+		try {
+			ResultSet rs = MySQL.getInstance().query(query);
+			while(rs.next()){
+				allMovesByGame.add(new Move(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), new FEN(rs.getString(5), rs.getString(6))));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return allMovesByGame;
 	}
 	
 }
